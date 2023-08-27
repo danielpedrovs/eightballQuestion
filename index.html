@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ask me about your future Relationship and travel</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .output {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px white;
+    background-image: linear-gradient(to left, #553c9a, #b393d3);
+    margin-top: 20px;
+  }
+  .input-container {
+    margin-top: 20px;
+  }
+  header h1 {
+  font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+label{
+    background-image: linear-gradient(to left, #553c9a, #b393d3);
+    color:#b393d3;
+    background-clip: text;
+  -webkit-background-clip: text;
+
+}
+script{
+    color: aliceblue;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+  <h1>Hey, what comes next for your Relationship Life?</h1>
+</header>
+  <div class="input-container">
+    <label for="nameInput">Your Name:</label>
+    <input type="text" id="nameInput" placeholder="Enter your name...">
+  </div>
+  <div class="input-container">
+    <label for="questionInput">Your Question:</label>
+    <input type="text" id="questionInput" placeholder="Ask a question...">
+    <button onclick="askQuestion()">Ask</button>
+  </div>
+  <div class="output" id="outputDiv"></div>
+</div>
+<script>
+  function getRandomResponse() {
+    const eightballResponses = [
+      'Yes, you will!',
+      'Let\'s start looking on Tinder!',
+      'If you don\'t come out of your comfort zone, my answer is "NO".',
+      'Your nieces need a good uncle| aunt.',
+      'Make a note for your fiancee to prepare for four children.',
+      'Have you done your hair transplant? If yes, then yes!',
+      'You will, but let\'s improve your teeth urgently!',
+      'The angels are emphasizing that you needed facial harmonization by yesterday!',
+      'Your artistic talents will lead to a surprising opportunity.',
+      'Remember to water the plants, and your life will flourish.',
+      'A big adventure is on its way; be ready!',
+      'Your next meal will be absolutely delicious.',
+      'Your intuition will guide you to the right decision.',
+      'An unexpected visitor will bring good news.',
+      'Your persistence will pay off sooner than you think.',
+      'Listen to your heart; it knows the answer.',
+      'A little generosity will go a long way.',
+      'Your dreams will soon become a reality.',
+      'A long-lost friend will reconnect with you.',
+    ];
+    const randomNumber = Math.floor(Math.random() * eightballResponses.length);
+    return eightballResponses[randomNumber];
+  }
+
+  function askQuestion() {
+    const name = document.getElementById('nameInput').value;
+    const userQuestion = document.getElementById('questionInput').value;
+    const outputDiv = document.getElementById('outputDiv');
+
+    if (name.trim() === '' || userQuestion.trim() === '') {
+      outputDiv.innerText = 'Please provide your name and ask a question.';
+      return;
+    }
+
+    const response = getRandomResponse();
+    const outputText = `Hello, ${name}\n${name} has asked: "${userQuestion}"\n---------*********______------********\n${response}\n---------*********______------***********`;
+    outputDiv.innerText = outputText;
+  }
+</script>
+</body>
+</html>
